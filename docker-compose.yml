@@ -1,13 +1,12 @@
 services:
   haskell-new:
-    environment:
-      - PROJECT_NAME=hello-world
     image: haskell-image
     entrypoint: 
       - stack
       - new
       - ${PROJECT_NAME}
       - --bare
+      - --force
     volumes:
       - type: bind
         source: .
