@@ -2,11 +2,8 @@ services:
   haskell-new:
     image: haskell-image
     entrypoint: 
-      - stack
-      - new
-      - ${PROJECT_NAME}
-      - --bare
-      - --force
+      - cabal
+      - init
     volumes:
       - type: bind
         source: .

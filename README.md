@@ -1,5 +1,8 @@
 ### 新しいプロジェクトを作るとき
 
+最初にローカルにghcupを入れたほうがいいかもです
+そうするとvscodeのlanguage serverの拡張機能が動くので
+次に：
 ```bash
 bash scripts/new.sh
 ```
@@ -8,8 +11,6 @@ bash scripts/new.sh
 
 ```bash
 bash scripts/dev.sh
-# あとはCLIでstackのコマンドを叩いてください
+# あとはCLIでcabalのコマンドを叩いてください
 # 例：
-stack run .
-stack install hogehoge
 ```
