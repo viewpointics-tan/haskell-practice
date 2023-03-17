@@ -1,0 +1,22 @@
+services:
+  haskell-new:
+    environment:
+      - PROJECT_NAME=hello-world
+    image: haskell-image
+    entrypoint: 
+      - stack
+      - new
+      - ${PROJECT_NAME}
+      - --bare
+    volumes:
+      - type: bind
+        source: .
+        target: /usr/src/app
+  haskell-dev:
+    image: haskell-image
+    entrypoint: 
+      - bash
+    volumes:
+      - type: bind
+        source: .
+        target: /usr/src/app
