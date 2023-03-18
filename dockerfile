@@ -1,3 +1,4 @@
+# alpineだとうまくいかない可能性がある
 FROM debian:buster-slim
 
 ENV LANG C.UTF-8
@@ -23,13 +24,7 @@ RUN apt-get update && \
         zlib1g-dev && \
     rm -rf /var/lib/apt/lists/*
 
-RUN curl -sSL https://get.haskellstack.org/ | sh
-ENV PATH="${PATH}:/usr/local/bin/stack:/root/.local/bin"
-RUN stack setup 9.2.6
-
-# WORKDIR /usr/src
-# RUN git clone https://github.com/haskell/haskell-language-server
-# WORKDIR /usr/src/haskell-language-server
-
+RUN curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+ENV PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.cabal/bin:/root/.ghcup/bin"
 
 WORKDIR /usr/src/app
