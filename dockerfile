@@ -26,5 +26,9 @@ RUN apt-get update && \
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ENV PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.cabal/bin:/root/.ghcup/bin"
+RUN ghcup install ghc 9.2.5 && ghcup set ghc 9.2.5
+RUN ghcup install stack 2.9.3 && ghcup set stack 2.9.3
+RUN ghcup install hls 1.9.0.0 && ghcup set hls 1.9.0.0
+RUN stack setup 9.2.5
 
 WORKDIR /usr/src/app

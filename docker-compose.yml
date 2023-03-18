@@ -1,13 +1,4 @@
 services:
-  haskell-new:
-    image: haskell-image
-    entrypoint: 
-      - cabal
-      - init
-    volumes:
-      - type: bind
-        source: .
-        target: /usr/src/app
   haskell-dev:
     image: haskell-image
     entrypoint: 
